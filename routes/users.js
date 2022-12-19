@@ -7,15 +7,15 @@ router.get('/', function(req, res, next) {
   
   var page = req.query.page;
 	var size = req.query.size;
-	var serch_string = req.query.serch_string;
+	var search_string = req.query.search_string;
     
 
   var query = `
 	  SELECT * FROM users
 	`;
 
-  if(serch_string){
-    query += `WHERE first_name LIKE '%${serch_string}%' OR last_name LIKE '%${serch_string}%' OR email LIKE '%${serch_string}%'`
+  if(search_string){
+    query += `WHERE first_name LIKE '%${search_string}%' OR last_name LIKE '%${search_string}%' OR email LIKE '%${search_string}%'`
   }
 
   var total_results;

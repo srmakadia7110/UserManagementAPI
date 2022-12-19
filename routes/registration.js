@@ -24,26 +24,25 @@ router.post('/', function(req, res, next) {
 		}	
 		else if(data.length > 0){
 		    res.json({success:false,code:500,message:"User with this email alredy exist"});
-        }
-	});
-
-	var query = `
-	INSERT INTO users 
-	(first_name, last_name, phone_no, email, age, password) 
-	VALUES ("${first_name}", "${last_name}", "${phone}", "${email}", "${age}","${md5(password)}")
-	`;
-
-	database.query(query, function(error, data){
-        if(error)
-		{
-			res.json({success:false,code:500,message:"User not created there is some error"});
-		}	
-		else
-		{
-			res.json({success:true,code:200,message:"User created successfully"});
+        }else{
+			var query = `
+			INSERT INTO users 
+			(first_name, last_name, phone_no, email, age, password) 
+			VALUES ("${first_name}", "${last_name}", "${phone}", "${email}", "${age}","${md5(password)}")
+			`;
+		
+			database.query(query, function(error, data){
+				if(error)
+				{
+					res.json({success:false,code:500,message:"User not created there is some error"});
+				}	
+				else
+				{
+					res.json({success:true,code:200,message:"User created successfully"});
+				}
+			});
 		}
 	});
-
 });
 
 module.exports = router;
