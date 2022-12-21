@@ -4,7 +4,7 @@ const mysql = require('mysql');
 var connection = mysql.createConnection({
 	host : 'sticky-scylla-1822.7s5.cockroachlabs.cloud',
 	database : 'user_management',
-	port : 26257
+	port : 26257,
 	user : 'shreyash',
 	password : 'LJ_gci9lru3XjNJBpSMP0w'
 });
