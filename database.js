@@ -2,10 +2,11 @@
 const mysql = require('mysql');
 
 var connection = mysql.createConnection({
-	host : '192.168.1.18',
+	host : 'sticky-scylla-1822.7s5.cockroachlabs.cloud',
 	database : 'user_management',
-	user : 'root',
-	password : ''
+	port : 26257
+	user : 'shreyash',
+	password : 'LJ_gci9lru3XjNJBpSMP0w'
 });
 
 connection.connect(function(error){
